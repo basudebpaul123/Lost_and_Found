@@ -172,8 +172,8 @@ namespace Lost_and_Found.Controllers
                 {
 
 
-                HttpContext.Session.SetString("Email", user.Email);
-                return RedirectToAction(nameof(Success));
+                HttpContext.Session.SetString("FirstName", user.Email);
+                return View("~/Views/Home/Index.cshtml");
                 
             }
                 else
@@ -187,8 +187,8 @@ namespace Lost_and_Found.Controllers
 
         public ActionResult Logout(User user)
         {
-            HttpContext.Session.Remove("Email");
-            return View();
+            HttpContext.Session.Remove("FirstName");
+            return View("~/Views/Home/Index.cshtml");
         }
 
         public IActionResult Success()

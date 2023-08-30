@@ -33,7 +33,7 @@ namespace Lost_and_Found.Controllers
             var combinedData = Tuple.Create(foundItem, lostItem);
             if (combinedData.Item1.Count == 0 && combinedData.Item2.Count == 0)
             {
-                ViewBag.NoResultsMessage = "No items matching your search were found.";
+                ViewBag.NoResultsMessage = "No post found!.";
             }
             return View(combinedData);
   
@@ -95,11 +95,11 @@ namespace Lost_and_Found.Controllers
             }
 
             var lostItems = _context.Lostitems
-                .Where(i => i.ItemName.Contains(search) || i.ItemCategory.Contains(search) || i.Description.Contains(search))
+                .Where(i => i.ItemName.Contains(search) || i.ItemCategory.Contains(search) || i.Description.Contains(search) || i.LostArea.Contains(search))
                 .ToList();
 
             var foundItems = _context.Founditems
-                .Where(i => i.ItemName.Contains(search) || i.ItemCategory.Contains(search) || i.Description.Contains(search))
+                .Where(i => i.ItemName.Contains(search) || i.ItemCategory.Contains(search) || i.Description.Contains(search) || i.FoundArea.Contains(search))
                 .ToList();
 
             var searchResults = Tuple.Create(lostItems, foundItems);
