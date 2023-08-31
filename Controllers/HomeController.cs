@@ -42,6 +42,7 @@ namespace Lost_and_Found.Controllers
         {
             return View();
         }
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
